@@ -1,0 +1,75 @@
+paths:
+  /api/productsDB/:
+    get:
+      summary: obtiene todos los productos
+      tags: - 'products'
+      responses: '200':
+      description: se obtuvieron los productos correctamente
+  /api/productsDB/{pid}:
+    get: 
+      summary: obtiene los productos de la base de datos
+      tags: - 'products'
+      parameters: 
+        - name: pid
+        in: path
+        description: id del producto
+        required: true
+        schema:
+        $type: String
+      responses: '200':
+      description: se obtuvieron los productos correctamente
+  put: 
+    summary: actualizar los productos de la base de datos
+    tags: - 'products'
+    parameters:
+      - name: pid
+        in: path
+        description: identificador del producto
+        required: true
+        schema:
+        $type: String
+      requestbody:
+        content:
+        aplication/json:
+          schema:
+          $ref: '#/components/requestbodies/updateProduct'
+            responses: 
+            '200': 
+              description:
+              se obtuvieron los productos correctamente
+
+  
+
+components:
+  requestBodies:
+    updateproductbd:
+      type: object
+      properties:
+        title:
+          type: String
+          description: titulo del producto
+        description:
+          type: String
+          description: descripcion del producto
+        code:
+          type: String
+          description: codigo del producto
+        price: 
+          type: String
+          description: precio del producto
+        status:
+          type: boolean
+          description: status del producto
+        stock:
+          type: String
+          description: cantidad del producto
+        category:
+          type: String
+          description: categoria del producto
+        thumbnail:
+          type: String
+          description: imagen del producto
+
+
+ 
+

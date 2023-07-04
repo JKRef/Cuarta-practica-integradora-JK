@@ -1,0 +1,39 @@
+paths:
+  /api/cartsDB/:
+    get:
+      summary: mostrar en un carrito los productos actuales
+      tags: - 'carts'
+      responses: '200'
+      description: se obtuvieron los datos correctamente
+  /api/cartsDB/{pid}:
+    get:
+      summary: obtiene los datos 
+      tags: - 'carts'
+      responses: '200'
+      description: se obtuvieron los datos correctamente
+      paramenters:
+        - name: pid
+        in: path
+        description: id del producto
+        required: true
+        schema:
+        $type: String
+  responses: '200'
+  description: se obtuvieron los datos coreectamente
+  
+  components:
+    requestbodies:
+      updateQuantityProduct:
+        type: object
+      properties:
+        priceTotal:
+          type: Number
+          description: precio total
+        quantityTotal:
+          type: Number
+          description: cantidad total
+        products:
+          type: String
+          description: productos
+       
+    
